@@ -38,7 +38,7 @@ function ShareButton() {
   }
 
   return (
-    <div className="fixed top-20 right-3 z-[60] sm:top-20 sm:right-5 lg:top-5">
+    <div className="fixed top-40 right-3 z-[60] sm:top-20 sm:right-5 lg:top-5">
       <button
         type="button"
         onClick={() => void copyLink()}
@@ -149,6 +149,7 @@ function HomeExperience() {
       <PetalCursor />
       <ScrollProgress sections={sectionRoutes} />
       <AudioPlayer />
+      <ShareButton />
 
       <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6">
         <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/30 bg-[rgba(26,18,8,0.45)] px-4 py-3 text-[var(--cream)] shadow-[0_20px_60px_rgba(26,18,8,0.2)] backdrop-blur-lg sm:px-6">
