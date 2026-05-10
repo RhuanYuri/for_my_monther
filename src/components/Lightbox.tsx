@@ -43,6 +43,7 @@ export function Lightbox({
   }, [currentIndex, onClose, photos.length])
 
   const photo = currentIndex === null ? null : photos[currentIndex]
+  const displayIndex = currentIndex ?? 0
 
   return (
     <AnimatePresence>
@@ -114,7 +115,7 @@ export function Lightbox({
                     <ChevronLeft className="h-5 w-5" />
                   </button>
                   <span className="font-body text-sm tracking-[0.24em] uppercase">
-                    {currentIndex + 1} / {photos.length}
+                    {displayIndex + 1} / {photos.length}
                   </span>
                   <button
                     type="button"
