@@ -5,7 +5,7 @@ import { HeartButton } from './HeartButton'
 const paragraphs = [
   'Mae, seu nome mora onde a calma comeca.',
   'No seu abraco, o medo sempre perdeu tamanho.',
-  'Voce ensinou que firmeza e carinho podem caminhar juntos.',
+  'Você ensinou que firmeza e carinho podem caminhar juntos.',
   'Fez da rotina um jardim de cuidado silencioso.',
   'Quando a vida apertou, foi sua voz que abriu caminho.',
   'Quando faltou resposta, sua presenca bastou.',

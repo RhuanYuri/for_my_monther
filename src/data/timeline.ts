@@ -37,14 +37,14 @@ export const timeline: TimelineEvent[] = [
     id: 't3',
     year: '2018',
     title: 'Coragem mansa',
-    text: 'Voce ensinou a ser forte sem endurecer o coração.',
+    text: 'Você ensinou a ser forte sem endurecer o coração.',
     photo: createTimelineArt('Coragem mansa', '#8B7355', '#1A1208'),
   },
   {
     id: 't4',
     year: '2026',
     title: 'O amor continua',
-    text: 'Tudo o que ficou para sempre ainda floresce em quem voce tocou.',
+    text: 'Tudo o que ficou para sempre ainda floresce em quem você tocou.',
     photo: createTimelineArt('O amor continua', '#C1694F', '#E8927C'),
   },
 ]

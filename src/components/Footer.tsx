@@ -15,7 +15,7 @@ export function Footer() {
           Com Amor
         </p>
         <h2 className="mt-6 font-display text-[clamp(3.2rem,8vw,7rem)] leading-[0.9] tracking-[0.06em]">
-          voce e amor que permanece, mesmo quando o tempo passa.
+          você e amor que permanece, mesmo quando o tempo passa.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl font-body text-lg leading-8 text-[rgba(250,243,224,0.72)]">
           Onde houver saudade, que haja tambem gratidao por tudo o que foi vivido com ternura.
