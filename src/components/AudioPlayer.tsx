@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Music2, Volume2, VolumeX } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
+import musicaSrc from '../assets/musica.mp3'
 
 export function AudioPlayer() {
   const [enabled, setEnabled] = useState(false)
@@ -13,8 +14,14 @@ export function AudioPlayer() {
       audioRef.current.pause()
       setEnabled(false)
     } else {
-      void audioRef.current.play()
-      setEnabled(true)
+      void audioRef.current
+        .play()
+        .then(() => {
+          setEnabled(true)
+        })
+        .catch(() => {
+          setEnabled(false)
+        })
     }
   }
 
@@ -32,7 +39,7 @@ export function AudioPlayer() {
 
   return (
     <div className="fixed right-3 bottom-20 z-50 sm:right-5 sm:bottom-6 md:right-5 md:bottom-6">
-      <audio ref={audioRef} src="/musica.mp3" />
+      <audio ref={audioRef} src={musicaSrc} preload="auto" />
       <button
         type="button"
         onClick={toggleAudio}

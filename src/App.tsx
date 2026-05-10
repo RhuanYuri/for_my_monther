@@ -155,7 +155,7 @@ function HomeExperience() {
         <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/30 bg-[rgba(26,18,8,0.45)] px-4 py-3 text-[var(--cream)] shadow-[0_20px_60px_rgba(26,18,8,0.2)] backdrop-blur-lg sm:px-6">
           <div className="pointer-events-auto">
             <p className="font-display text-[0.8rem] tracking-[0.16em] uppercase sm:text-base sm:tracking-[0.24em] lg:text-xl lg:tracking-[0.28em]">
-              Para Mae
+              Para Você Mãe
             </p>
           </div>
           <nav className="pointer-events-auto hidden gap-2 md:flex">

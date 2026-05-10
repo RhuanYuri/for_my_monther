@@ -36,7 +36,7 @@ export function Footer() {
           </svg>
         </div>
 
-        <p className="mt-4 font-script text-4xl text-[rgba(232,146,124,0.95)]">Andressa</p>
+        <p className="mt-4 font-script text-4xl text-[rgba(232,146,124,0.95)]">Com amor Rhuã, Andressa e Sandy</p>
       </div>
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
