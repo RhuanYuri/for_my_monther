@@ -3,14 +3,15 @@ import { Feather } from 'lucide-react'
 import { HeartButton } from './HeartButton'
 
 const paragraphs = [
-  'Mae, seu nome mora onde a calma comeca.',
-  'No seu abraco, o medo sempre perdeu tamanho.',
-  'Você ensinou que firmeza e carinho podem caminhar juntos.',
-  'Fez da rotina um jardim de cuidado silencioso.',
-  'Quando a vida apertou, foi sua voz que abriu caminho.',
-  'Quando faltou resposta, sua presenca bastou.',
-  'Cada lembranca sua tem cheiro de casa acesa.',
-  'Cada gesto seu deixou amor onde antes era vazio.',
+  'Vanessa é seu primeiro nome, mãe...',
+  'O segundo é braba, isso é verdade,',
+  'se irrita rápido, perde a paciência com facilidade.',
+  'Mas por trás da cara séria e do jeito explosivo,',
+  'tem um coração enorme e um sorriso bonito.',
+  'Ela reclama, resmunga e às vezes quer discutir,',
+  'mas também sabe fazer qualquer momento sorrir.',
+  'Porque até na raiva ela tem seu encanto,',
+  'dessas pessoas difíceis… que a gente gosta tanto.',
   'Com carinho,',
   'Andressa Gracielly',
 ]

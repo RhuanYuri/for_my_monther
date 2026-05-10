@@ -18,7 +18,7 @@ type SectionRoute = {
 
 const sectionRoutes: SectionRoute[] = [
   { path: '/', label: 'Primeiro Olhar', sectionId: 'hero' },
-  { path: '/memorias', label: 'Memorias Vivas', sectionId: 'gallery' },
+  { path: '/memorias', label: 'Memórias Vivas', sectionId: 'gallery' },
   { path: '/legado', label: 'Legado de Amor', sectionId: 'legacy' },
   { path: '/com-amor', label: 'Com Amor', sectionId: 'footer' },
 ]

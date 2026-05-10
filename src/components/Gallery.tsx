@@ -6,7 +6,7 @@ import { GalleryItem } from './GalleryItem'
 import { Lightbox } from './Lightbox'
 
 export function Gallery() {
-  const [activeCategory, setActiveCategory] = useState<PhotoCategory | 'todas'>('familia')
+  const [activeCategory, setActiveCategory] = useState<PhotoCategory | 'todas'>('família')
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   const filteredPhotos = useMemo(() => {
@@ -25,18 +25,18 @@ export function Gallery() {
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-3 rounded-full border border-[rgba(193,105,79,0.22)] bg-white/65 px-5 py-3 text-xs tracking-[0.42em] text-[var(--terracota)] uppercase shadow-sm backdrop-blur">
               <Images className="h-4 w-4" />
-              Memorias em Movimento
+              Memórias em Movimento
             </p>
             <h2 className="mt-6 font-display text-[clamp(2.8rem,6vw,5.6rem)] leading-[0.9] text-[var(--preto-elegante)]">
               Retratos de afeto: pequenos instantes que continuam florescendo no coração.
             </h2>
           </div>
 
-          <div className="flex flex-wrap gap-3 rounded-full border border-[rgba(193,105,79,0.16)] bg-white/55 p-1.5 backdrop-blur">
+          <div className="grid w-full max-w-full grid-cols-2 gap-2 rounded-[1.75rem] border border-[rgba(193,105,79,0.16)] bg-white/55 p-2 backdrop-blur sm:grid-cols-3 lg:flex lg:w-auto lg:flex-wrap lg:gap-3 lg:rounded-full lg:p-1.5">
             <button
               type="button"
               onClick={() => setActiveCategory('todas')}
-              className={`relative rounded-full px-5 py-3 text-sm tracking-[0.18em] uppercase transition ${
+              className={`relative min-w-0 rounded-full px-3 py-2 text-[0.65rem] tracking-[0.14em] uppercase transition sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em] lg:px-5 lg:py-3 lg:text-sm lg:tracking-[0.18em] ${
                 activeCategory === 'todas'
                   ? 'text-[var(--cream)] shadow-[0_18px_35px_rgba(193,105,79,0.28)]'
                   : 'text-[var(--preto-elegante)] hover:bg-[rgba(193,105,79,0.1)]'
@@ -56,7 +56,7 @@ export function Gallery() {
                 key={category.value}
                 type="button"
                 onClick={() => setActiveCategory(category.value)}
-                className={`relative rounded-full px-5 py-3 text-sm tracking-[0.18em] uppercase transition ${
+                className={`relative min-w-0 rounded-full px-3 py-2 text-[0.65rem] tracking-[0.14em] uppercase transition sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em] lg:px-5 lg:py-3 lg:text-sm lg:tracking-[0.18em] ${
                   activeCategory === category.value
                     ? 'text-[var(--cream)] shadow-[0_18px_35px_rgba(193,105,79,0.28)]'
                     : 'text-[var(--preto-elegante)] hover:bg-[rgba(193,105,79,0.1)]'

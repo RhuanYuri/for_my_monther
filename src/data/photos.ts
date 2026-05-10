@@ -1,4 +1,4 @@
-export type PhotoCategory = 'familia' | 'amizades' | 'viagens' | 'momentos'
+export type PhotoCategory = 'família' | 'amizades' | 'viagens' | 'momentos'
 
 export type PhotoItem = {
   id: string
@@ -12,7 +12,7 @@ export type PhotoItem = {
 }
 
 export const photoCategories: { label: string; value: PhotoCategory | 'todas' }[] = [
-  { label: 'Familia', value: 'familia' },
+  { label: 'Família', value: 'família' },
   { label: 'Amizades', value: 'amizades' },
   { label: 'Viagens', value: 'viagens' },
   { label: 'Momentos', value: 'momentos' },
@@ -21,10 +21,10 @@ export const photoCategories: { label: string; value: PhotoCategory | 'todas' }[
 export const photos: PhotoItem[] = [
   {
     id: 'p1',
-    title: 'Familia unida',
+    title: 'Famíliaunida',
     date: '2025',
     era: 'Agora',
-    category: 'familia',
+    category: 'família',
     caption: 'Momentos que definem quem somos.',
     src: '/familia.jpeg',
     size: 'large',
@@ -34,7 +34,7 @@ export const photos: PhotoItem[] = [
     title: 'Filhas queridas',
     date: '2025',
     era: 'Agora',
-    category: 'familia',
+    category: 'família',
     caption: 'Vidas que brotam do nosso amor.',
     src: '/filhas.jpeg',
     size: 'medium',
@@ -44,7 +44,7 @@ export const photos: PhotoItem[] = [
     title: 'Filhos amados',
     date: '2025',
     era: 'Agora',
-    category: 'familia',
+    category: 'família',
     caption: 'O futuro em suas mãos e sorrisos.',
     src: '/filhos.jpeg',
     size: 'medium',
@@ -54,17 +54,17 @@ export const photos: PhotoItem[] = [
     title: 'Casal apaixonado',
     date: '2025',
     era: 'Agora',
-    category: 'familia',
+    category: 'família',
     caption: 'Duas vidas que elegeram ficar juntas.',
     src: '/casal.jpeg',
     size: 'large',
   },
   {
     id: 'p5',
-    title: 'Familia ao lado',
+    title: 'Família ao lado',
     date: '2025',
     era: 'Agora',
-    category: 'familia',
+    category: 'família',
     caption: 'Encontros que aquecem a alma.',
     src: '/familia.png',
     size: 'wide',
