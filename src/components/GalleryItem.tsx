@@ -38,15 +38,15 @@ export function GalleryItem({
         className="h-full w-full object-cover sepia-[0.68] saturate-[0.55] transition duration-700 group-hover:sepia-0 group-hover:saturate-100"
       />
       <div className="absolute inset-0 bg-[rgba(193,105,79,0.14)] transition duration-500 group-hover:opacity-0" />
-      <div className="absolute inset-x-0 bottom-0 z-20 p-5">
+      <div className="absolute inset-x-0 bottom-0 z-20 p-5 2xl:p-7">
         <div className="translate-y-6 transition duration-500 group-hover:translate-y-0">
-          <p className="font-body text-xs tracking-[0.28em] text-[rgba(250,243,224,0.75)] uppercase">
+          <p className="font-body text-xs tracking-[0.28em] text-[rgba(250,243,224,0.75)] uppercase 2xl:text-sm">
             {photo.era} · {photo.date}
           </p>
-          <h3 className="mt-2 font-display text-3xl leading-none text-[var(--cream)]">
+          <h3 className="mt-2 font-display text-3xl leading-none text-[var(--cream)] 2xl:text-4xl">
             {photo.title}
           </h3>
-          <p className="mt-2 max-w-sm font-body text-sm leading-6 text-[rgba(250,243,224,0.85)]">
+          <p className="mt-2 max-w-sm font-body text-sm leading-6 text-[rgba(250,243,224,0.85)] 2xl:text-base">
             {photo.caption}
           </p>
         </div>

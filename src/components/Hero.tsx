@@ -37,8 +37,8 @@ function TypewriterLines() {
       : -1
 
   return (
-    // ↓ font menor: clamp(1.8rem, 4.5vw, 4rem) — caberá nas 3 linhas sem overflow
-    <div className="space-y-1 text-balance font-display text-[clamp(1.8rem,4.5vw,4rem)] leading-[1.05] tracking-[0.06em] text-[var(--cream)]">
+    // ↓ font responsiva em telas muito grandes: clamp(1.8rem, 4.5vw, 5.2rem) — cresce até 5.2rem
+    <div className="space-y-1 text-balance font-display text-[clamp(1.8rem,4.5vw,5.2rem)] leading-[1.05] tracking-[0.06em] text-[var(--cream)]">
       {visibleLines.map((line, index) => (
         <p key={heroLines[index]} className="min-h-[1em]">
           {line}
@@ -116,8 +116,8 @@ export function Hero() {
   const parallaxOffset = useParallax(0.18)
 
   return (
-    // ↓ h-screen + overflow-hidden garante que nada ultrapasse a viewport
-    <div className="bloom-vignette relative isolate flex h-screen max-h-screen items-center overflow-hidden px-5 sm:px-8 lg:px-12">
+    // ↓ min-h-screen permite crescimento sem overflow-hidden travando o scroll
+    <div className="bloom-vignette relative isolate flex min-h-screen items-center px-5 sm:px-8 lg:px-12 2xl:px-16">
       <motion.div
         aria-hidden="true"
         className="absolute inset-0 -z-20 bg-cover bg-center"
@@ -129,10 +129,10 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_8%,rgba(250,243,224,0.16),transparent_28%),radial-gradient(circle_at_top,rgba(193,105,79,0.42),transparent_42%),linear-gradient(180deg,rgba(26,18,8,0)_0%,rgba(26,18,8,0.7)_100%)]" />
       <PetalField />
 
-      <div className="pointer-events-none absolute inset-x-5 top-16 -z-10 h-px bg-[linear-gradient(90deg,transparent,rgba(250,243,224,0.35),transparent)] sm:inset-x-8 lg:inset-x-12" />
+      <div className="pointer-events-none absolute inset-x-5 top-16 -z-10 h-px bg-[linear-gradient(90deg,transparent,rgba(250,243,224,0.35),transparent)] sm:inset-x-8 lg:inset-x-12 2xl:inset-x-16" />
 
       {/* ↓ items-center garante alinhamento vertical equilibrado entre os dois blocos */}
-      <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center 2xl:max-w-7xl 2xl:gap-12">
         
         {/* Coluna de texto */}
         <div className="space-y-5">
@@ -183,14 +183,14 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll cue — posicionado de forma absoluta no fundo, dentro do h-screen */}
+      {/* Scroll cue — posicionado de forma absoluta no fundo, dentro do min-h-screen */}
       <motion.div
         animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 2.1, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute inset-x-0 bottom-4 mx-auto flex w-fit flex-col items-center gap-1 text-[rgba(250,243,224,0.86)]"
+        className="absolute inset-x-0 bottom-6 mx-auto flex w-fit flex-col items-center gap-2 text-[rgba(250,243,224,0.86)] pointer-events-none"
       >
         <span className="font-body text-[10px] tracking-[0.45em] uppercase">deslize</span>
-        <ChevronDown className="h-5 w-5" />
+        <ChevronDown className="h-5 w-5 animate-bounce" />
       </motion.div>
     </div>
   )

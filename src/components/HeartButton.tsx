@@ -10,7 +10,7 @@ export function HeartButton() {
       <button
         type="button"
         onClick={() => setBurst((value) => value + 1)}
-        className="relative inline-flex items-center gap-3 rounded-full bg-[var(--terracota)] px-7 py-4 font-body text-sm tracking-[0.2em] text-[var(--cream)] uppercase shadow-[0_24px_50px_rgba(193,105,79,0.32)] transition hover:-translate-y-0.5"
+        className="relative inline-flex items-center gap-3 rounded-full bg-[var(--terracota)] px-7 py-4 font-body text-sm tracking-[0.2em] text-[var(--cream)] uppercase shadow-[0_24px_50px_rgba(193,105,79,0.32)] transition hover:-translate-y-0.5 2xl:px-9 2xl:py-5 2xl:text-base 2xl:tracking-[0.24em]"
       >
         <Heart className="h-5 w-5 fill-current" />
         Guardar no coração

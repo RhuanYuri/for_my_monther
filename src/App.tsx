@@ -38,11 +38,11 @@ function ShareButton() {
   }
 
   return (
-    <div className="fixed top-40 right-3 z-[60] sm:top-20 sm:right-5 lg:top-5">
+    <div className="fixed top-40 right-3 z-[60] sm:top-20 sm:right-5 lg:top-5 2xl:right-12">
       <button
         type="button"
         onClick={() => void copyLink()}
-        className="relative inline-flex items-center gap-2 rounded-full border border-white/60 bg-[rgba(250,243,224,0.85)] px-3 py-2.5 text-[0.68rem] tracking-[0.16em] text-[var(--terracota)] uppercase shadow-[0_18px_35px_rgba(26,18,8,0.15)] backdrop-blur transition hover:-translate-y-0.5 sm:px-4 sm:py-3 sm:text-sm sm:tracking-[0.2em]"
+        className="relative inline-flex items-center gap-2 rounded-full border border-white/60 bg-[rgba(250,243,224,0.85)] px-3 py-2.5 text-[0.68rem] tracking-[0.16em] text-[var(--terracota)] uppercase shadow-[0_18px_35px_rgba(26,18,8,0.15)] backdrop-blur transition hover:-translate-y-0.5 sm:px-4 sm:py-3 sm:text-sm sm:tracking-[0.2em] 2xl:px-5 2xl:py-3.5 2xl:text-base 2xl:tracking-[0.24em]"
       >
         <Share2 className="h-4 w-4" />
         <span className="hidden sm:inline">Compartilhar</span>
@@ -104,13 +104,20 @@ function ScrollSections() {
 
         const observer = new IntersectionObserver(
           (entries) => {
-            const visible = entries.find((entry) => entry.isIntersecting)
+            // Pega a seção mais visível (com maior intersectionRatio)
+            const mostVisible = entries.reduce((prev, current) => 
+              current.intersectionRatio > prev.intersectionRatio ? current : prev
+            )
 
-            if (visible && location.pathname !== path) {
-              navigate(path, { replace: true })
+            // Só navega se realmente mais de 50% da seção está visível
+            if (mostVisible.intersectionRatio > 0.5) {
+              const targetPath = sectionRoutes.find(r => r.sectionId === mostVisible.target.id)?.path
+              if (targetPath && location.pathname !== targetPath) {
+                navigate(targetPath, { replace: true })
+              }
             }
           },
-          { threshold: 0.55 },
+          { threshold: [0, 0.25, 0.5, 0.75, 1] },
         )
 
         observer.observe(element)
@@ -151,20 +158,20 @@ function HomeExperience() {
       <AudioPlayer />
       <ShareButton />
 
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/30 bg-[rgba(26,18,8,0.45)] px-4 py-3 text-[var(--cream)] shadow-[0_20px_60px_rgba(26,18,8,0.2)] backdrop-blur-lg sm:px-6">
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6 lg:px-8 2xl:px-12">
+        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/30 bg-[rgba(26,18,8,0.45)] px-4 py-3 text-[var(--cream)] shadow-[0_20px_60px_rgba(26,18,8,0.2)] backdrop-blur-lg sm:px-6 2xl:max-w-7xl 2xl:px-8 2xl:py-4">
           <div className="pointer-events-auto">
-            <p className="font-display text-[0.8rem] tracking-[0.16em] uppercase sm:text-base sm:tracking-[0.24em] lg:text-xl lg:tracking-[0.28em]">
+            <p className="font-display text-[0.8rem] tracking-[0.16em] uppercase sm:text-base sm:tracking-[0.24em] lg:text-xl lg:tracking-[0.28em] 2xl:text-2xl 2xl:tracking-[0.32em]">
               Para Você Mãe
             </p>
           </div>
-          <nav className="pointer-events-auto hidden gap-2 md:flex">
+          <nav className="pointer-events-auto hidden gap-2 md:flex 2xl:gap-3">
             {sectionRoutes.map((route) => (
               <NavLink
                 key={route.path}
                 to={route.path}
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2 text-xs tracking-[0.22em] uppercase transition ${
+                  `rounded-full px-4 py-2 text-xs tracking-[0.22em] uppercase transition 2xl:px-6 2xl:py-3 2xl:text-sm 2xl:tracking-[0.24em] ${
                     isActive
                       ? 'bg-[rgba(250,243,224,0.95)]'
                       : 'text-[rgba(250,243,224,0.82)] hover:bg-[rgba(250,243,224,0.12)]'
@@ -180,7 +187,7 @@ function HomeExperience() {
       </header>
 
       <nav className="fixed inset-x-3 bottom-4 z-50 md:hidden">
-        <div className="mx-auto flex max-w-md items-center justify-between gap-1 rounded-full border border-white/35 bg-[rgba(26,18,8,0.62)] p-1.5 shadow-[0_20px_60px_rgba(26,18,8,0.25)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-md items-center justify-between gap-1 rounded-full border border-white/35 bg-[rgba(26,18,8,0.62)] p-1.5 shadow-[0_20px_60px_rgba(26,18,8,0.25)] backdrop-blur-xl 2xl:hidden">
           {sectionRoutes.map((route) => (
             <NavLink
               key={route.path}
