@@ -95,7 +95,7 @@ function ScrollSections() {
 
   useEffect(() => {
     const observers = sectionRoutes
-      .map(({ path, sectionId }) => {
+      .map(({ sectionId }) => {
         const element = refs.current[sectionId]
 
         if (!element) {
