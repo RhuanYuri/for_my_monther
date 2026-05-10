@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type TrailPoint = {
   x: number
@@ -7,24 +7,56 @@ type TrailPoint = {
 }
 
 export function PetalCursor() {
-  const [enabled] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia('(pointer:fine)').matches,
-  )
+  const [enabled, setEnabled] = useState(false)
   const [position, setPosition] = useState<TrailPoint>({ x: 0, y: 0 })
   const [trail, setTrail] = useState<TrailPoint[]>([])
+  const frameRef = useRef<number | null>(null)
+  const pointRef = useRef<TrailPoint>({ x: 0, y: 0 })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const mediaQuery = window.matchMedia('(pointer:fine)')
+    const updateEnabled = () => {
+      setEnabled(mediaQuery.matches)
+    }
+
+    updateEnabled()
+    mediaQuery.addEventListener('change', updateEnabled)
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateEnabled)
+    }
+  }, [])
 
   useEffect(() => {
     const onMove = (event: MouseEvent) => {
-      const point = { x: event.clientX, y: event.clientY }
-      setPosition(point)
-      setTrail((current) => [point, ...current].slice(0, 6))
+      pointRef.current = { x: event.clientX, y: event.clientY }
+
+      if (frameRef.current !== null) {
+        return
+      }
+
+      frameRef.current = window.requestAnimationFrame(() => {
+        const nextPoint = pointRef.current
+        setPosition(nextPoint)
+        setTrail((current) => [nextPoint, ...current].slice(0, 6))
+        frameRef.current = null
+      })
     }
 
     if (enabled) {
-      window.addEventListener('mousemove', onMove)
+      window.addEventListener('mousemove', onMove, { passive: true })
     }
 
     return () => {
+      if (frameRef.current !== null) {
+        window.cancelAnimationFrame(frameRef.current)
+        frameRef.current = null
+      }
+
       window.removeEventListener('mousemove', onMove)
     }
   }, [enabled])
@@ -34,10 +66,10 @@ export function PetalCursor() {
   }
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[80] hidden md:block">
+    <div className="pointer-events-none fixed inset-0 z-[80]">
       {trail.map((point, index) => (
         <motion.span
-          key={`${point.x}-${point.y}-${index}`}
+          key={index}
           animate={{
             x: point.x - 10,
             y: point.y - 10,
