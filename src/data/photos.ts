@@ -21,7 +21,7 @@ export const photoCategories: { label: string; value: PhotoCategory | 'todas' }[
 export const photos: PhotoItem[] = [
   {
     id: 'p1',
-    title: 'Famíliaunida',
+    title: 'Família unida',
     date: '2025',
     era: 'Agora',
     category: 'família',

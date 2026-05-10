@@ -177,7 +177,7 @@ export function Hero() {
           <div className="absolute inset-x-8 bottom-8 rounded-[1.2rem] border border-[rgba(250,243,224,0.2)] bg-[rgba(26,18,8,0.35)] p-4 text-[var(--cream)] backdrop-blur-md">
             <p className="font-script text-2xl text-[var(--cream)]">para a mulher que fez do amor um lar</p>
             <p className="mt-1.5 font-body text-xs tracking-[0.25em] text-[rgba(250,243,224,0.65)] uppercase">
-              delicadeza, forca e presença
+              delicadeza, força e presença
             </p>
           </div>
         </motion.div>

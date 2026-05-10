@@ -18,7 +18,7 @@ export function Footer() {
           você e amor que permanece, mesmo quando o tempo passa.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl font-body text-lg leading-8 text-[rgba(250,243,224,0.72)]">
-          Onde houver saudade, que haja tambem gratidao por tudo o que foi vivido com ternura.
+          Onde houver saudade, que haja também gratidão por tudo o que foi vivido com ternura.
         </p>
 
         <div className="mt-14 flex justify-center">
