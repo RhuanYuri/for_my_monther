@@ -75,7 +75,7 @@ export function Gallery() {
           </div>
         </div>
 
-        <motion.div layout className="grid auto-rows-[24px] gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <motion.div layout className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {filteredPhotos.map((photo) => (
               <GalleryItem

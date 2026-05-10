@@ -3,10 +3,10 @@ import type { PhotoItem } from '../data/photos'
 import { useSectionInView } from '../hooks/useIntersectionObserver'
 
 const sizeClasses: Record<PhotoItem['size'], string> = {
-  small: 'md:col-span-1 md:row-span-11',
-  medium: 'md:col-span-1 md:row-span-14',
-  large: 'md:col-span-1 md:row-span-18',
-  wide: 'md:col-span-2 md:row-span-12',
+  small: 'aspect-[4/5]',
+  medium: 'aspect-[4/5]',
+  large: 'aspect-[3/4]',
+  wide: 'aspect-[16/10]',
 }
 
 export function GalleryItem({
@@ -17,6 +17,7 @@ export function GalleryItem({
   onOpen: () => void
 }) {
   const { ref, inView } = useSectionInView({ triggerOnce: true, threshold: 0.2 })
+  const featuredRowClass = photo.id === 'p5' || photo.id === 'p10' ? 'lg:col-span-2' : ''
 
   return (
     <motion.button
@@ -28,7 +29,7 @@ export function GalleryItem({
       animate={inView ? { opacity: 1, rotate: 0, y: 0 } : {}}
       whileHover={{ scale: 1.05, rotate: 0.5 }}
       transition={{ type: 'spring', stiffness: 140, damping: 17 }}
-      className={`group relative overflow-hidden rounded-[1.8rem] text-left shadow-[0_25px_70px_rgba(26,18,8,0.18)] ${sizeClasses[photo.size]}`}
+      className={`group relative overflow-hidden rounded-[1.8rem] text-left shadow-[0_25px_70px_rgba(26,18,8,0.18)] ${sizeClasses[photo.size]} ${featuredRowClass}`}
     >
       <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,transparent,rgba(26,18,8,0.7))] opacity-85 transition-opacity duration-500 group-hover:opacity-100" />
       <img
